@@ -55,6 +55,8 @@ You can find the following files/folders in my repository:
 
 - **Content:** Non-technical presentation to stakeholders.
 
+#### [Link to Google Slides](https://docs.google.com/presentation/d/1bBNCAuONw2pTGlWJGgOkkmau2-aE26REFldoL6vYWwo/edit?usp=sharing)
+
 ## Market Insights
 
 Given the Business Problem and Goals, I decided to start the analysis by exploring the dataset, trying to understand and get some insights about the market.

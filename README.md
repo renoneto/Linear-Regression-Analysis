@@ -31,6 +31,7 @@ Moreover, based on historical data, their agents have a **30% success rate in se
 All the analysis will be done using the King County House Sales dataset, which contains information regarding house sales + some specifications about the sold houses.
 
 [You can find more about it here (Kaggle)](https://www.kaggle.com/harlfoxem/housesalesprediction)
+
 [Column Definitions here](https://github.com/renoneto/second_module_project/blob/main/data/kc_house_data_column_names.md)
 
 ## Navigation

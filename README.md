@@ -1,160 +1,167 @@
+# Opening a Real Estate Agency in King County/Seattle
 
-# Module 2 Final Project
+In this project, I'm working for a Real Estate Agency firm that considers entering the King County/Downtown Seattle market. However, since they don't know the area very well, the Agency hired me to study the market.
 
+My mission is to help them understand how houses are valued, which factors matter the most for buyers, and provide ideas/strategies for entering the market given their commission-based business model.
 
-## Introduction
+## Commission-based Business Model
 
-In this lesson, we'll review all of the guidelines and specifications for the final project for Module 2.
+The firm charges a commission of **5%** based on a minimum price agreed with the owner and **7%** if sold above the agreed minimum price, and _there's no reduction on commission if they sell below minimum_. `¯\_(ツ)_/¯`
 
-## Objectives
-You will be able to:
-* Describe all required aspects of the final project for Module 2
-* Describe all required deliverables
-* Describe what constitutes a successful project
+For example, if they agreed with the owner to sell the house at a minimum of **_USD 1,000,000.00_** and they sold it at **_USD 1,200,000.00_** , the commission will be:
 
-## Final Project Summary
+- **_USD 1,200,000.00 * 7% = USD 84,000.00_
 
-Another module down--you're almost half way there!
+If **_USD 1,000,000.00_**:
 
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-mod-2-project-v2-1/master/halfway-there.gif)
+- **_USD 1,000,000.00 * 5% = USD 50,000.00_
 
-All that remains in Module 2 is to put our newfound data science skills to use with a final project! You should expect this project to take between 20 and 25 hours of solid, focused effort. If you're done way quicker, go back and dig in deeper or try some of the optional "level up" suggestions. If you're worried that you're going to get to 30 hrs and still not even have the data imported, reach out to an instructor in Slack ASAP to get some help!
+Moreover, based on historical data, their agents have a **30% success rate in selling houses and 10% of selling above the minimum price.**
+
+> **_Disclamer: I invented all of these assumptions. I have no accurate understanding of how Real Estate Agents work._**
+
+## Goals
+
+1. Show some insights about the market.
+2. Analyze which features are the most/least valued.
+3. Come up with ideas/strategies to enter the market given their commission-based business model.
 
 ## The Dataset
 
-For this project, you'll be working with the King County House Sales dataset. We've modified the dataset to make it a bit more fun and challenging.  The dataset can be found in the file `"kc_house_data.csv"`, in this repo.
+All the analysis will be done using the King County House Sales dataset, which contains information regarding house sales + some specifications about the sold houses.
 
-The description of the column names can be found in the column_names.md file in this repository. As with most real world data sets, the column names are not perfectly described, so you'll have to do some research or use your best judgment if you have questions relating to what the data means.
+[You can find more about it here (Kaggle)](https://www.kaggle.com/harlfoxem/housesalesprediction)
+[Column Definitions here](https://github.com/renoneto/second_module_project/blob/main/data/kc_house_data_column_names.md)
 
-You'll clean, explore, and model this dataset with a multivariate linear regression to predict the sale price of houses as accurately as possible.
+## Navigation
 
-## The Deliverables
+You can find the following files/folders in my repository:
 
-For online students, there will be five deliverables for this project (Note: On-campus students may have different requirements, please speak with your instructor):
+### [`Real Estate Market Analysis.ipynb`](https://github.com/renoneto/second_module_project/blob/main/Real Estate Market Analysis.ipynb)
 
-1. A well documented **Jupyter Notebook** containing any code you've written for this project and comments explaining it. This work will need to be pushed to your GitHub repository in order to submit your project.  
-2. An organized **README.md** file in the GitHub repository that describes the contents of the repository. This file should be the source of information for navigating through the repository.
-3. A short **Keynote/PowerPoint/Google Slides presentation** (delivered as a PDF export) giving a high-level overview of your methodology and recommendations for non-technical stakeholders. Make sure to also add and commit this pdf of your non-technical presentation to your repository with a file name of presentation.pdf.
-4. **[A Blog Post](https://github.com/learn-co-curriculum/dsc-welcome-blogging-v2-1)**	
-5. A **Video Walkthrough** of your non-technical presentation. Some common video recording tools used are Zoom, Quicktime, and Nimbus. After you record your presentation, publish it on a service like YouTube or Google Drive, you will need a link to the video to submit your project.
+- **Content:** Main Jupyter Notebook with the whole analysis.
 
-Note: On-campus students may have different requirements, please speak with your instructor.
+- **What I'm doing:**
 
-### Jupyter Notebook Must-Haves
+1. Dataset Exploration and Cleaning.
+2. Asking Questions to understand the Housing Market.
+3. Running Revenue Simulations given the Business Model, trying to find the best combination of No. of Agents and Zip Codes that will increase Net Income/ROI.
+4. Creating a Linear Regression Model to predict the Sale Price of Houses.
+5. Analyzing the final model, understanding the weights given to each feature.
+6. Presenting Conclusions/Recommendations.
 
-For this project, your Jupyter Notebook should meet the following specifications:
+### [`presentation.pdf`](https://github.com/renoneto/second_module_project/blob/main/presentation.pdf)
 
-#### Organization/Code Cleanliness
+- **Content:** Non-technical presentation to stakeholders talking about the approach and recommendations.
 
-* The notebook should be well organized, easy to follow,  and code should be commented where appropriate.  
-    * Level Up: The notebook contains well-formatted, professional looking markdown cells explaining any substantial code.  All functions have docstrings that act as professional-quality documentation
-* The notebook is written for technical audiences with a way to both understand your approach and reproduce your results. The target audience for this deliverable is other data scientists looking to validate your findings.
+## Market Insights
 
-#### Visualizations & EDA
+Given the Business Problem and Goals, I decided to start the analysis by exploring the dataset, trying to understand and get some insights about the market.
 
-* Your project contains at least 4 meaningful data visualizations, with corresponding interpretations. All visualizations are well labeled with axes labels, a title, and a legend (when appropriate)  
-* You pose at least 3 meaningful questions and answer them through EDA.  These questions should be well labeled and easy to identify inside the notebook.
-    * **Level Up**: Each question is clearly answered with a visualization that makes the answer easy to understand.   
-* Your notebook should contain 1 - 2 paragraphs briefly explaining your approach to this project.
+The questions and the Business-Context for each are the following:
 
-#### Model Quality/Approach
+**When were houses built? Is the Number of New Houses growing over time?**
+> **Business Context:**
+> A good sign of a Healthy Market would be to see the No. of New Houses growing over the years. I assume that in a declining region, with not jobs/companies, people would likely move to different regions instead of building new houses. New houses could mean:
+>
+> - High demand: more people are moving to Seattle, because the good job market.
+> - Residents are building new houses: residents are looking for new houses, and they end up building their own.
+>
+> Either way, it would be good to look at an upward trend if you are a Real Estate Agency firm. Nobody would like to sell houses in a region with no buyers.
 
-* Your model should not include any predictors with p-values greater than .05.  
-* Your notebook shows an iterative approach to modeling, and details the parameters and results of the model at each iteration.  
-    * **Level Up**: Whenever necessary, you briefly explain the changes made from one iteration to the next, and why you made these choices.  
-* You provide at least 1 paragraph explaining your final model.   
-* You pick at least 3 coefficients from your final model and explain their impact on the price of a house in this dataset.   
+**What's the impact of `date` in `price`? Have prices changed over time?**
+> **Business Context:**
+> A Real Estate Agency would not enter a market where houses are losing value (_unless they know something that nobody knows, of course_). Growing prices would be a good indication of a healthy real estate market.
 
+**What's the importance of Zipcode and Coordinates in `price`?**
+> **Business Context:**
+> It's essential for the Agency to understand which regions have higher prices and if there's something specific to the area that justifies that price difference.
+>
+> This information might help the company to decide in which regions to focus on/allocate more resources. Of course, `price` is not the only data point relevant to this question. However, it would be an important one.
 
-### Non-Technical Presentation Must-Haves
+**Is the dataset evenly distributed in terms of houses by Zip Code?**
+> **Business Context:**
+> It would not be entirely wrong to imply that certain Zip Codes sell more than others, and given that I'm looking at a dataset of sold houses, I can check if my hypothesis is correct.
+>
+>  Even though I might not necessarily know the reason for that. It's important for the Agency to consider that when allocating agents to Zip Codes/Regions.
 
-Another deliverable should be a Keynote, PowerPoint or Google Slides presentation delivered as a pdf file in your fork of this repository with the file name of `presentation.pdf` detailing the results of your project.  Your target audience is non-technical people interested in using your findings to maximize their profit when selling their home.
+**What's the Average Sold Price by Zip Code?**
+> **Business Context:**
+> Again, following the same logic that the Agency would allocate Agents based on Price/Demand, it would be interesting to see many sold houses in areas where the average price is high.
 
-Your presentation should:
+**What's the Total Sold by Zip Code?**
+> **Business Context:**
+> By Summing the Sold Price of all houses by Zip Code, I can identify which Zip Codes sell more in Absolute Value. In other words, the total amount of dollars sold in houses, which does not translate to actual revenue. However, it can be an excellent metric to analyze.
 
-* Contain between 5 - 10 professional-quality slides.  
-    * **Level Up**: The slides should use visualizations whenever possible, and avoid walls of text.
-* Take no more than 5 minutes to present.   
-* Avoid technical jargon and explain the results in a clear, actionable way for non-technical audiences.   
+**Would the distance from Downtown Seattle be a good proxy for coordinates and Zip Code?**
+> **Business Context:**
+> Just like Zip Code, the distance from Downtown Seattle might be a good way to choose which Houses to sell.
 
-**_Based on the results of your models, your presentation should discuss at least two concrete features that highly influence housing prices._**
+## Revenue Simulation
 
-### Blog Post Must-Haves
+After exploring the dataset, I'm running simulations built on top of assumptions about the Market Size + Costs + Agent Conversion Rate + Zip Codes.
 
-Refer back to the [Blogging Guidelines](https://github.com/learn-co-curriculum/dsc-welcome-blogging-v2-1) for the technical requirements and blog ideas.
+The outcome is questionable since I don't have all the inputs necessary to build such model. However, the goal is to show some recommendations and, in a real-world scenario, I'd work closely with stakeholders to understand all variables and constraints.
 
+The steps taken were the following:
 
-## The Process 
-The process for this project is identical to the process you followed for your module 1 project. We specified it again below as a refresher.
-(Note: On-campus students may have different processes, please speak with your instructor)
+1. **Define Average Success Rate by Agent:** % Success Rate on selling houses by Agent = Sold Houses / Listings, by Agent.
+2. **Remove Outliers:** I found that some houses are outliers, and were negatively impacting the outcomes.
+3. **Define the Housing Market Size:** To effectively calculate the No. of Sold Houses, I need to consider all Listed Houses that were not sold. Therefore, I'm estimating the Market Size based on the Success Rate by Rate and assuming that the dataset is representative of the whole market.
+4. **Run Simulations and estimate Revenue:**
+    1. Define No. of Houses Agents will manage per year.
+    2. Total No. of Listings and Sold Houses.
+    3. Simulate Sales on Different Pairs of Zip Code.
+5. **Impact of No. of Agents in Net Income in Top 5 Most Profitable Zip Codes:** Based on the results above, I take the Most Profitable Zip Codes and run simulations using different No. of Agents. The goal is to find the best combination of Zip Code + No. of Agents.
+6. **Analyze results in different scenarios:** Given the results of the simulations, I find the best combination.
+## Linear Regression Model to estimate Sold Price
 
-### 1. Getting Started
+As the last step of the project, I'm creating a Linear Regression Model to predict the Sold Price.
 
-Please start by reviewing this document. If you have any questions, please ask them in Slack ASAP so (a) we can answer the questions and (b) so we can update this repository to make it clearer.
+One of the benefits of such model is the interpretability of the coefficients. Each feature will have a different weight and signal. Therefore, it's possible to compare the impact on price by adding/removing one unit of a feature.
 
-Be sure to let the instructor team know when you’ve started working on a project, either by reaching out over Slack or, if you are in a full-time or part-time cohort, by connecting with your Cohort Lead in your weekly 1:1. If you’re not sure who to reach out to, post in the #online-ds-sp-000 channel in Slack.
+With that information, the Agency can focus on features that matter to buyers. Moreoever, it's a way to understand the market as well, which will help them to decide the best Houses to sell.
 
-Once you're done with this module, please start on the project. Do that by forking this repository, cloning it locally, and working in the student.ipynb file. Make sure to also add and commit a pdf of your presentation to the repository with a file name of `presentation.pdf`.
+The following steps were taken during the process:
 
-### 2. The Project Review
+**1. Feature Transformation:**
+    - Deal with null values and boolean fields
+    - Create new features/Feature Engineering
+    - Reduce bias in model towards Zip Codes with more records by oversampling
+    - One-Hot Encoding of Features
+    - Percentage of Zero/Null in Variables
+    - Check for Normality of continuous variables
+    - Feature Scaling: Z-Score
 
-_Note: On-campus students may have different review processes, please speak with your instructor._
+**2. Model Training**
+    - Build Baseline Model
+    - Remove features where p-value > 0.05
+    - Look at QQ Plot and Scatter Plot of Residuals
+    - Deal with outliers
+    - Investigate Multicolinearity
+    - Final Model Performance Analaysis
 
-> **When you start on the project, please also reach out to an instructor immediately to schedule your project review** (if you're not sure who to schedule with, please ask in Slack!)
+**3. Model Interpretation**
 
-#### What to expect from the Project Review
+## Conclusions
 
-Project reviews are focused on preparing you for technical interviews. Treat project reviews as if they were technical interviews, in both attitude and technical presentation *(sometimes technical interviews will feel arbitrary or unfair - if you want to get the job, commenting on that is seldom a good choice)*.
+**1. Relative Healthy Market:** Based on the growing number of Newer Sold Houses, it's possible to say that people are investing in the Real Estate Market. If there was no interest in the area, the data would show older sold houses. However, the Average Built Year is 1970, and it's possible to see an upward trend. <br> Probably there are healthier markets out there, but I'd have to compare Seattle with other places.
 
-The project review is comprised of a 45 minute 1:1 session with one of the instructors. During your project review, be prepared to:
+**2. Houses near Downtown Seattle and Washington Lake have higher prices:** Based on the price of sold houses and the coordinates, it's easy to see which areas are the most expensive. <br> It might be of interest of the Agency to focus on luxury/expensive houses, so it's useful information.
 
-#### 1. Deliver your PDF presentation to a non-technical stakeholder.
-In this phase of the review (~10 mins) your instructor will play the part of a non-technical stakeholder that you are presenting your findings to. The presentation  should not exceed 5 minutes, giving the "stakeholder" 5 minutes to ask questions.
+**3. 'Zip Code' is the most impactful feature:** After analyzing all features, the conclusion is that _Zip Code_ has a significant impact on the price. Therefore, for an Agency, a good strategy could be to define the market they will operate based on the Zip Code.
 
-In the first half of the presentation (2-3 mins), you should summarize your methodology in a way that will be comprehensible to someone with no background in data science and that will increase their confidence in you and your findings. In the second half (the remaining 2-3 mins) you should summarize your findings and be ready to answer a couple of non-technical questions from the audience. The questions might relate to technical topics (sampling bias, confidence, etc) but will be asked in a non-technical way and need to be answered in a way that does not assume a background in statistics or machine learning. You can assume a smart, business stakeholder, with a non-quantitative college degree.
+**4. Putting the Zip Code on the side, Waterfront and Square Footage add more value to a house:** Whether a house has a Waterfront is the most price-relevant feature after Zip Code. Houses with a Waterfront adds 177,850 dollars to the price. In second place comes the Square Footage, with 32 dollars added per unit.
 
-#### 2. Go through the Jupyter Notebook, answering questions about how you made certain decisions. Be ready to explain things like:
-    * "How did you pick the question(s) that you did?"
-    * "Why are these questions important from a business perspective?"
-    * "How did you decide on the data cleaning options you performed?"
-    * "Why did you choose a given method or library?"
-    * "Why did you select those visualizations and what did you learn from each of them?"
-    * "Why did you pick those features as predictors?"
-    * "How would you interpret the results?"
-    * "How confident are you in the predictive quality of the results?"
-    * "What are some of the things that could cause the results to be wrong?"
+**5. Distance from Downtown Seattle and Houses with Three Floors are the features that most reduce value:** On the other end of the spectrum, the farthest a house is from Downtown Seattle, the lower its price will be. More specifically, 1,520 dollars per kilometer. Moreover, interestingly, houses with Three Floors have their price reduced by 43,279 dollars.
 
-Think of the first phase of the review (~30 mins) as a technical boss reviewing your work and asking questions about it before green-lighting you to present to the business team. You should practice using the appropriate technical vocabulary to explain yourself. Don't be surprised if the instructor jumps around or sometimes cuts you off - there is a lot of ground to cover, so that may happen.
+**6. After running simulations on different Numbers of Agents and Combinations of Zip Codes, the most profitable solution was 25 Agents selling 98004 Houses:** Given the business model and some assumptions, I found the best combination of Zip Codes and No. of Agents. <br> Moreover, I was able to find which Zip Codes tend to bring higher revenue numbers: 98004, 98040, 98112, 98039, and 98006.
 
-If any requirements are missing or if significant gaps in understanding are uncovered, be prepared to do one or all of the following:
-* Perform additional data cleanup, visualization, feature selection, modeling and/or model validation
-* Submit an improved version
-* Meet again for another Project Review
+**7. Rethink the Business Model:** After running the simulations, I realized that the Return on Investment was pretty low relative to the risk that investors were taking. Therefore, another suggestion would be to rethink the business model and optimize it.
+## Next Steps
 
-What won't happen:
-* You won't be yelled at, belittled, or scolded
-* You won't be put on the spot without support
-* There's nothing you can do to instantly fail or blow it
+**The Simulation Machine:** Given the results achieved after running simulations, one of my concerns was that my assumptions were entirely wrong or the business model doesn't make sense. However, the exercise of creating this 'simulation machine' is the main goal here. <br> The idea is to show how to take a data-driven approach to make strategic decisions. Ideally, I'd work directly with stakeholders to make sure that assumptions are realistic, and I'm taking into consideration all inputs in my model. <br> Besides that, I'd like to test different scenarios. As I said before, it's hard to analyze something without business understanding. Maybe the strategy is to focus on Luxury houses, or maybe there's a funding limit, or perhaps the business-owner already has a team with 30 Agents. Without that information, the model becomes too generalistic and maybe not realistic.
 
-**Please note: We need to receive the URL of your repository at least 24 hours before and please have the project finished at least 3 hours before your review so we can look at your materials in advance.**
+**Gather more data on houses that were not sold:** The dataset contains only successful cases, or sold homes. I'd also like to understand if there's some pattern in houses that did not sell. Maybe certain features make it harder to sell a house.
 
-
-## Submitting your Project
-
- You’re almost done! In order to submit your project for review, include the following links to your work in the corresponding fields on the right-hand side of Learn.
-
- 1. **GitHub Repo:** Now that you’ve completed your project in Jupyter Notebooks, push your work to GitHub and paste that link to the right. (If you need help doing so, review the resources [here](https://docs.google.com/spreadsheets/d/1CNGDhjcQZDRx2sWByd2v-mgUOjy13Cd_hQYVXPuzEDE/edit#gid=0).)
-_Reminder: Make sure to also add and commit a pdf of your non-technical presentation to the repository with a file name of presentation.pdf._
-2. **Blog Post:** Include a link to your blog post.
-3. **Record Walkthrough:** Include a link to your video walkthrough.
-
- Hit "I'm done" to wrap it up. You will receive an email in order to schedule your review with your instructor.
- 
- 
-## Grading Rubric
-Online students can find a PDF of the grading rubric for the project [here](https://github.com/learn-co-curriculum/dsc-mod-2-project-v2-1/blob/master/mod2_project_rubric.pdf). On-campus students may have different review processes, please speak with your instructor.
-
-
-## Summary
-
-The end of module projects and project reviews are a critical part of the program. They give you a chance to both bring together all the skills you've learned into realistic projects and to practice key "business judgement" and communication skills that you otherwise might not get as much practice with.
+**Create different models for each Zip Code:** To achieve higher accuracy, a good idea would be to create one model for each Zip Code. That would bring a more granular understanding of the most/least valuable features within Zip Codes.

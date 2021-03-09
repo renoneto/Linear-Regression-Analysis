@@ -37,7 +37,7 @@ All the analysis will be done using the King County House Sales dataset, which c
 
 You can find the following files/folders in my repository:
 
-### [`Real Estate Market Analysis.ipynb`](https://github.com/renoneto/second_module_project/blob/main/Real Estate Market Analysis.ipynb)
+### [`Real Estate Market Analysis.ipynb`](https://github.com/renoneto/second_module_project/blob/main/Real%20Estate%20Market%20Analysis.ipynb)
 
 - **Content:** Main Jupyter Notebook with the whole analysis.
 

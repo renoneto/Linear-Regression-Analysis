@@ -53,7 +53,7 @@ You can find the following files/folders in my repository:
 
 ### [`presentation.pdf`](https://github.com/renoneto/second_module_project/blob/main/presentation.pdf)
 
-- **Content:** Non-technical presentation to stakeholders talking about the approach and recommendations.
+- **Content:** Non-technical presentation to stakeholders.
 
 ## Market Insights
 
